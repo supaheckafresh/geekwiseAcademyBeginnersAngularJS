@@ -1,0 +1,7 @@
+.ui.container {
+	padding-top: 2.4em;
+}
+
+.ui.list, ol.ui.list, ul.ui.list {
+	margin: 0;
+}

@@ -1,0 +1,51 @@
+.modalContainer {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0 !important;
+	margin: 0 !important;
+	color: dimgray !important;
+	position: fixed !important;
+	z-index: 1;
+	background: rgba(10, 10, 10, .78) !important;
+}
+
+.modalContainer .ui.center.aligned.grid {
+	height: 100%;
+}
+
+.ui.two.column.grid {
+	margin-top: 5em;
+}
+
+.ui.container.loginForm .form {
+	margin-left: 12em;
+	margin-right: 12em;
+	margin-bottom: 5em;
+	text-align: left;
+}
+
+.ui.container.registerForm .form {
+	margin-left: 16em;
+	margin-right: 16em;
+	margin-bottom: 5em;
+	text-align: left;
+}
+
+.loginForm .two.fields {
+	padding-top: 2em;
+}
+
+.ui.inverted.horizontal.divider {
+	margin-top: 3.6em;
+}
+
+.ui.toggle.checkbox input:checked~label,
+.ui.toggle.checkbox input:focus:checked~label {
+	color:palegreen !important;
+}
+
+input.ng-invalid.ng-dirty {
+	background-color: lightpink !important;
+}

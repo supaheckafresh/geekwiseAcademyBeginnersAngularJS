@@ -1,0 +1,17 @@
+<div>
+	<div class="ui inverted icon header">
+		<i class="asterisk gray loading icon"></i> {{ vm.modal.message }}
+	</div>
+	<div class="actions">
+		<div class="ui purple basic cancel inverted button" tabindex="0"
+		     ng-show="vm.modal.buttonObj1"
+			  ng-click="vm.modal.buttonObj1.callback(); vm.close();">
+			<i class="remove icon"></i> {{ vm.modal.buttonObj1.text }}
+		</div>
+		<div class="ui green ok inverted button" tabindex="1"
+			  ng-show="vm.modal.buttonObj2"
+			  ng-click="vm.modal.buttonObj2.callback(); vm.close();">
+			<i class="checkmark icon"></i> {{ vm.modal.buttonObj2.text }}
+		</div>
+	</div>
+</div>

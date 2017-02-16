@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="components/loggedInUser/loggedInUser.css" />
+
+<div class="ui segment paddingtop">
+	<!-- spinny loading thing which shows if Firebase is syncing our login status -->
+	<div class="loggedInUser" ng-if="vm.fetchIsLoginBusy()"><i class="asterisk gray loading icon"></i></div>
+
+	<!-- NOT logged in presentation -->
+	<div class="loggedInUser" ng-if="!vm.fetchLoggedInUser() && !vm.fetchIsLoginBusy()">
+		<div class="ui large gray button" ng-click="vm.showLogin()">LOGIN</div>
+		<div class="ui large gray button" ng-click="vm.showRegister()">REGISTER</div>
+	</div>
+
+	<!-- logged in presentation -->
+	<div class="loggedInUser" ng-if="vm.fetchLoggedInUser() && !vm.fetchIsLoginBusy()">
+		<img class="ui avatar image" ng-src="{{ vm.fetchLoggedInUser().photoURL }}">
+		<span>{{ vm.fetchLoggedInUser().displayName | uppercase }} :: <a href="" ng-click="vm.logoutPrompt()">LOGOUT</a></span>
+	</div>
+
+	<!-- standard application header -->
+	<h1 class="ui header"><i class="grey google icon" aria-hidden="true"></i>{{ vm.applicationLabel }}</h1>
+</div>

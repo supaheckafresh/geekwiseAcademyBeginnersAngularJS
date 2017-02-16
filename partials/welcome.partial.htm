@@ -1,0 +1,226 @@
+<link href="/partials/welcome.css" rel="stylesheet">
+
+<div class="ui container">
+	<div>
+		<logged-in-user></logged-in-user>
+		<navigation></navigation>
+		<rooms></rooms>
+	</div>
+
+	<h3 class="ui block inverted header">
+		WEEK 1
+	</h3>
+	<div class="ui inverted grey segment">
+		<div class="ui inverted very relaxed divided big list">
+			<div class="item">
+				<div class="content">
+					<div class="header">AngularJS is a framework</div>
+					A framework is something you build into and, although hopefully not often, around. If you're building around a reputable
+					framework often, you may be doing it wrong.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">JavaScript is a language</div>
+					We've been pushing it to do things it originally never had scope to handle. As such, libraries and frameworks for JavaScript
+					flourish and allow for more common practices found in large-scale, more traditional application development.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Your AngularJS needs localhost</div>
+					Browser security implementations don't allow you to run Angular applications from your file system the way you can regular
+					HTML documents.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">We used Node Package Manager</div>
+					All of our vendor dependencies were collected via NPM, and we included these in our index.htm file. But Angular won't run
+					yet!
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Modules</div>
+					We get a reference to our global Angular, and using its API we create an Angular module, which we configure for HTML5 and
+					routing in index.js (although this may be done anywhere you have a reference to your application module).
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Routing makes the URL application input</div>
+					Your HTML templates don't reference one another by file system relativity. Angular routing now handles all of this, mapping
+					URL input to templates, controllers and component pieces.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Routing requires Angular to be booted up</div>
+					Routing doesn't work if Angular isn't booted, and Angular needs to be booted by loading index.htm; as such, you can't expect
+					your application to work if you enter "sideways", via a URL where the server doesn't serve index.htm and load the required
+					JavaScript.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Some basic I.T. required</div>
+					Your web server, whatever it is, be it IIS, Apache, Express, SuperStatic, etc., needs URL <b>rewriting</b> to be properly
+					configured. We used SuperStatic in class, which supports easy configuration and runs quickly.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Wrap in Angular</div>
+					Our actual application logic is wrapped in Angular stuff (hence the bit about Angular being a framework), but this extra
+					boilerplate is worth it as we explore the rich eco-system of features, features, FEATURES Angular exposes to us.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Bindings</div>
+					Use interpolation brackets around an expression to display the results of that expression on your HTML template. ngModel
+					allows you to create two-way data-binding on controls like input and textarea. To improve performance of your application
+					significantly on documents with lots of bound data, use one-time binding "::" where applicable.
+				</div>
+			</div>
+
+			<div class="item" ng-non-bindable>
+				<div class="content">
+					<div class="header">Expressions</div>
+					<code>{{ expression goes here }}</code>, the expression being a property on your controller, scope or rootscope, an
+					assignment, etc. If a binding only needs to be evaluated once, use <code>{{ ::expression }}</code> to improve performance
+					on a document with a lot of data to bind.
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<h3 class="ui block inverted header">
+		WEEK 2
+	</h3>
+	<div class="ui inverted grey segment">
+		<div class="ui inverted very relaxed divided big list">
+			<div class="item">
+				<div class="content">
+					<div class="header">ngRepeat</div>
+					Rubber-stamp HTML segments &quot;driven&quot; by an array. Consider this a declarative approach to plain JavaScript's forEach,
+					with each iteration giving you scope to an element with helper properties attached, like $index, $odd, $even, etc.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Filter</div>
+					Filters, defined in Angular, either built-in or custom ones attached to the module you're working with, can be used to transform
+					input into something else. Use filters in your expressions with the pipe character.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Constants</div>
+					Constants are objects that are assigned to a module in Angular. Use constant("name", object). This angular constant may now
+					be injected in any controller or service in the module.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Services</div>
+					Like constants, once attached to a module these may be injected anywhere. They are singletons (https://en.wikipedia.org/wiki/Singleton_pattern).
+					They are never reinitialized, so you can persist a service's state throughout the lifespan of the application.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Dependency Injection</div>
+					Angular will inject the functionality of a service or the properties of a constant for you when you pass the name of these
+					into a controller function (or another service function).
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">ngClass and ngStyle</div>
+					The Angular way to set UI styles, animations and swap classes dynamically. Bind to controller / service properties directly
+					or use truthy expressions to determine which classes get applied to an element in real time.
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<h3 class="ui block inverted header">
+		WEEK 3
+	</h3>
+	<div class="ui inverted grey segment">
+		<div class="ui inverted very relaxed divided big list">
+			<div class="item">
+				<div class="content">
+					<div class="header">Components</div>
+					Components create custom HTML vocabulary and valuable encapsulation for your application and, like services, constants, and
+					controllers, these are attached to an Angular module.
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Component Steps</div>
+					<ol>
+						<li>Get reference to Angular module</li>
+						<li>Invoke component(param1, param2) on your module reference</li>
+						<li>Parameter 1:  name your component, camelCase, and remember this is how you'll use this component in HTML markup &lt;camel-case&gt;</li>
+						<li>Parameter 2:  not a function!... but a configuration object (see &quot;Comparison between Directive definition and Component
+							 definition&quot;) in docs for the properties Angular expects on this object</li>
+						<li>Ensure new JS files are added to your application via bundling or index.htm</li>
+						<li>Use your component somewhere and test it</li>
+					</ol>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<h3 class="ui block inverted header">
+		WEEK 4
+	</h3>
+	<div class="ui inverted grey segment">
+		<div class="ui inverted very relaxed divided big list">
+			<div class="item">
+				<div class="content">
+					<div class="header">Form Validation</div>
+					Use &quot;novalidate&quot; to disable built-in browser validation so Angular (and you) may drive validation
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">Form Controllers</div>
+					<a href="https://docs.angularjs.org/api/ng/type/form.FormController">Form controller docs</a> - see how I use
+					Angular on our login form as well as exercise two.  Angular performs a lot of validation and CSS class
+					assignment to your form and child inputs which makes form validation and conditional styling a breeze!
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="content">
+					<div class="header">ngModel</div>
+					ngModel is a built-in Angular directive for form controls that allow for two-way binding to/from your controller or
+					rootscope.  This is how you can directly bind changes in your HTML to a property in JavaScript and vice-versa.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

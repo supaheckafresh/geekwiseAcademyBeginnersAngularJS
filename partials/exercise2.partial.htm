@@ -1,0 +1,75 @@
+<link href="/partials/exercise.css" rel="stylesheet">
+
+<div class="ui container">
+	<div>
+		<logged-in-user></logged-in-user>
+		<navigation></navigation>
+	</div>
+
+	<div class="ui horizontal divider">
+		Exercise 2
+	</div>
+
+	<div>
+		<form novalidate ng-submit="vm.submit()" name="form">
+			<div class="ui form" ng-class="{ error: form.$invalid }">
+				<div class="fields">
+					<div class="field">
+						<label>First name</label>
+						<input type="text" name="firstname" ng-model="firstname" required placeholder="First Name">
+					</div>
+					<div class="field">
+						<label>Middle name</label>
+						<input type="text" name="middlename" ng-model="middlename" required placeholder="Middle Name">
+					</div>
+					<div class="field">
+						<label>Last name</label>
+						<input type="text" name="lastname" ng-model="lastname" required placeholder="Last Name">
+					</div>
+				</div>
+				<div class="fields">
+					<div class="six wide field">
+						<label>Email</label>
+						<input type="email" name="email" ng-model="email" required placeholder="Email">
+					</div>
+				</div>
+				<div class="fields">
+					<div class="field">
+						<label>Password</label>
+						<input type="password" name="password" required ng-model="password">
+					</div>
+					<div class="field">
+						<label>Confirm Password</label>
+						<input type="password" name="passwordconf" required ng-model="passwordconf" ng-pattern="password">
+					</div>
+				</div>
+				<div ng-show="form.$submitted && form.$invalid" class="ui error message">
+					<div class="header">Error</div>
+					<p>Your form has errors; please try again after correcting your input</p>
+				</div>
+				<button class="ui large gray button">Submit Form</button>
+			</div>
+
+			<div>&nbsp;</div>
+
+			<div class="spacedDiv">
+				Tell me if the form has been changed: <b>{{ form.$dirty }}</b>
+			</div>
+
+			<div class="spacedDiv">
+				Tell me if the form is valid: <b>{{  form.$valid }}</b>
+				<br />
+				Validity in this instance requires all items be filled out as well as an email address entered.  Don't confuse
+				email address validation (i.e. does it actually belong to a user) with actually checking if the email belongs
+				to a user.  We're just observing the syntax of the field's input.
+			</div>
+
+			<div class="spacedDiv">
+				Tell me if the form is submitted: <b>{{  form.$submitted }}</b>
+				<br />
+				Requires ngSubmit directive.
+			</div>
+		</form>
+	</div>
+
+</div>

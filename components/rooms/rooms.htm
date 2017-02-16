@@ -1,0 +1,25 @@
+<link href="components/rooms/rooms.css" rel="stylesheet">
+
+<div class="ui segments navigation">
+	<div class="ui segment">
+		<h3 class="ui grey header">
+			Rooms: &nbsp;
+			<span ng-hide="vm.returnFetchedRooms().length">
+				<i class="asterisk gray loading icon"></i>
+				Loading...
+			</span>
+		</h3>
+	</div>
+	<div ng-show="vm.returnFetchedRooms().length" class="ui segment">
+		<!-- a list of rooms we pull off of our service to our controller binding -->
+		<div class="ui horizontal large list">
+			<div ng-repeat="r in vm.returnFetchedRooms() | orderBy: 'name'" class="item">
+				<div class="content">
+					<div class="header"><a ng-href="room/{{ r.id }}">{{ r.name | uppercase }}</a></div>
+				</div>
+			</div>
+		</div>
+		<!-- let's ensure we can show something, say... a panel, in a section below our menu we're making above! -->
+		<ng-transclude></ng-transclude>
+	</div>
+</div>

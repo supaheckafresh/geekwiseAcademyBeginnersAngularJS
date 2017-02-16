@@ -1,0 +1,9 @@
+.ui.inverted.list .item a:not(.ui) {
+	color: lightskyblue !important;
+	text-decoration: underline;
+}
+
+.ui.inverted.list .list>.item .header, .ui.inverted.list>.item .header {
+	font-size: 1.36em;
+	color: white;
+}

@@ -1,0 +1,49 @@
+<div class="ui container registerForm">
+	<form name="vm.registerform" ng-submit="vm.register.$valid && vm.register(vm.registerform.controls, password)" novalidate>
+		<div class="ui inverted form"
+			  ng-class="{ error: vm.error.message || (vm.registerform.$submitted && vm.registerform.$invalid) }">
+			<div class="field">
+				<label>Username (Email): </label>
+				<input name="email" type="email" required ng-model="vm.registerform.controls.email">
+			</div>
+			<div class="field">
+				<label>Display Name: </label>
+				<input name="displayName" type="text" required ng-model="vm.registerform.controls.displayName">
+			</div>
+			<div class="field">
+				<label>Photo URL: </label>
+				<input name="photoURL" type="url" ng-model="vm.registerform.controls.photoURL">
+			</div>
+			<div class="two fields">
+				<!-- keep password off of vm.registerform -->
+				<div class="field">
+					<label>Password: </label>
+					<input name="password" type="password" required ng-model="password">
+				</div>
+				<div class="field">
+					<label>Confirm Password: </label>
+					<input name="passwordconfirm" type="password" required ng-model="passwordconfirm" ng-pattern="password">
+				</div>
+			</div>
+			<div class="ui error message">
+				<div class="header">{{ vm.error.code || 'Error' }}</div>
+				<p>{{ vm.error.message || 'Your form is not filled out properly' }}</p>
+			</div>
+		</div>
+		<div class="ui two column grid">
+			<div class="row">
+				<!-- clear password separately because these values won't be on the submitted form object -->
+				<!-- we'll require the password to be typed after every submission -->
+				<div class="right aligned column">
+					<button class="ui large button"
+					        ng-click="vm.register(vm.registerform.controls, password); password = null; passwordconfirm = null;"
+							  ng-disabled="vm.registerform.$invalid">Register</button>
+				</div>
+				<div class="left aligned column">
+					<button class="ui large inverted basic button"
+					        ng-click="vm.closeModal(); password = null; passwordconfirm = null;">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

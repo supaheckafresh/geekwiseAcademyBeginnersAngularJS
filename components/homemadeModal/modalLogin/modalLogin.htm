@@ -1,0 +1,39 @@
+<div class="ui container loginForm">
+	<button class="ui large button" tabindex="0" ng-click="vm.gitLogin()">Login with Git</button>
+	<div class="ui inverted horizontal divider">Or</div>
+	<!-- https://docs.angularjs.org/api/ng/directive/form#submitting-a-form-and-preventing-the-default-action -->
+	<form name="vm.loginform" ng-submit="vm.loginform.$valid && vm.login(vm.loginform.controls.username, vm.loginform.controls.password)" novalidate>
+		<div class="ui inverted form" ng-class="{ error: vm.error.message || (vm.loginform.username.$invalid && vm.loginform.$submitted) }">
+			<div class="two fields">
+				<div class="field">
+					<label>Username (email): </label>
+					<input name="username" type="email" tabindex="0" required ng-model="vm.loginform.controls.username">
+				</div>
+				<div class="field">
+					<label>Password: </label>
+					<input name="password" type="password" tabindex="0" required ng-model="vm.loginform.controls.password">
+				</div>
+			</div>
+			<!--<div class="inline field">
+				<div class="ui toggle checkbox">
+					<input type="checkbox" tabindex="0" ng-model="vm.loginform.controls.isRemembered">
+					<label>Remember Me?</label>
+				</div>
+			</div>-->
+			<div class="ui error message">
+				<div class="header">{{ vm.error.code || 'Invalid form' }}</div>
+				<p>{{ vm.error.message || 'Please check your username - is it an email address?' }}</p>
+			</div>
+		</div>
+		<div class="ui two column grid">
+			<div class="row">
+				<div class="right aligned column">
+					<button class="ui large button" tabindex="0" ng-click="vm.login(vm.loginform.controls.username, vm.loginform.controls.password)" ng-disabled="vm.loginform.$invalid">Login</button>
+				</div>
+				<div class="left aligned column">
+					<button class="ui large inverted basic button" tabindex="0" ng-click="vm.closeModal();">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

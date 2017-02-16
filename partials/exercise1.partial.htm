@@ -1,0 +1,104 @@
+<link href="/partials/exercise.css" rel="stylesheet">
+
+<div class="ui container">
+	<div>
+		<logged-in-user></logged-in-user>
+		<navigation></navigation>
+	</div>
+
+	<div class="ui horizontal divider">
+		Review Exercise 1
+	</div>
+
+	<div class="spacedDiv">
+		<button ng-click="vm.showPrompt()" class="ui large button">Show Prompt Modal</button>
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to &quot;title&quot; here:
+		<b>{{ ::vm.title }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to &quot;title&quot; here and make it upper-case (don't touch controller property):
+		<b>{{ ::vm.title | uppercase }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		Create a method on our controller have it change this button's text when this button is <i>rolled</i> over:
+		<br/><button class="ui large button" ng-mouseenter="vm.rollMethod()">{{ vm.rollButtonText }}</button>
+	</div>
+
+	<div class="spacedDiv">
+		When this button is <i>clicked</i>, reset the button text above WITHOUT using a controller method:
+		<br/><button class="ui large button" ng-click="vm.rollButtonText = 'Roll Me'">Click Me</button>
+	</div>
+
+	<div class="spacedDiv">
+		Bind to controllerInitializedObject.  Show its full JSON output:
+		<b>{{ vm.controllerInitializedObject | json }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to controllerInitializedObject's name, all-caps:
+		<b>{{ ::vm.controllerInitializedObject.name | uppercase }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to controllerInitializedObject's click count property:
+		<b>{{ ::vm.controllerInitializedObject.clickCount }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		Bind to controllerInitializedObject's click count property:
+		<b>{{ vm.controllerInitializedObject.clickCount }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		When this button is clicked, create a new object and add to controller's objectArray (give this object a name that makes sense and assign a random CSS color to the color property):
+		<br/><button class="ui large button" ng-click="vm.addNewObject()">Add New Object</button>
+	</div>
+
+	<div class="spacedDiv">
+		Create a button for every object in objectArray (ngRepeat).  The button's background color should be the object's
+		color property (ngStyle docs) and the button text should be the object's name + if it is first in array.  Clicking
+		the button should increase the object it represents' click count property by one, performing a console.log in the
+		process letting users' know what button was pressed and what its click count currently is:<br/>
+		<button class="ui large button"
+				  ng-hide="results.length === 0"
+				  ng-repeat="obj in vm.objectArray | filter:vm.filter as results"
+				  ng-click="vm.objectClicked(obj)"
+				  ng-style="{ 'background-color': obj.color }">{{ obj.name }} {{ $first ? ' + First!' : '' }}</button>
+
+		<span style="color: red;" ng-show="results.length === 0">Nothing matches filter: {{ vm.filter }}</span>
+	</div>
+
+	<div class="spacedDiv">
+		In fact, show the console.log output from above... here:
+		<b>{{ vm.lastObjectClickedText }} </b>
+	</div>
+
+	<div class="spacedDiv">
+		Filter the object array:
+		<input type="text" ng-model="vm.filter.$">
+	</div>
+
+	<div class="spacedDiv">
+		Filter the object array by ONLY click count:
+		<input type="text" ng-model="vm.filter.clickCount">
+	</div>
+
+	<div class="spacedDiv">
+		Create a drop-down that filters buttons by color:
+		<!--
+			syntax for ng-options we used
+			ng-options="SELECTEDVALUE as DISPLAYNAME for ITEM in COLLECTION"
+		-->
+		<select ng-model="vm.filter.color"
+				  ng-change="vm.clearColorFilter()"
+				  ng-options="color.hex as color.name for color in vm.possibleColors"
+				  ng-style="{ 'background-color': vm.filter.color}">
+			<option value="">-- choose color to filter --</option>
+		</select>
+	</div>
+</div>

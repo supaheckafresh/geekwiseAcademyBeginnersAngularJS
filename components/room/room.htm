@@ -1,0 +1,33 @@
+<link href="components/room/room.css" rel="stylesheet">
+
+<div class="ui container">
+	<logged-in-user></logged-in-user>
+	<navigation></navigation>
+	<rooms>
+		<!-- let's drop our room partial content right into a "rooms" component using Angular's transclude -->
+		<div class="ui card">
+			<div class="content">
+				<div class="header">Welcome to {{ vm.roomName }}</div>
+				<div class="meta">
+					<span ng-show="vm.isReserved" class="right floated time">Reserved on:  {{ vm.reservedAtTime }}</span>
+				</div>
+				<div class="description">
+					<p>{{ vm.reserveAttemptMessage }}</p>
+				</div>
+			</div>
+			<!-- reserve button shows if the room is free -->
+			<div ng-hide="vm.isReserved" class="extra content">
+				<div class="right floated author">
+					<div class="ui large icon button">RESERVE &nbsp;<i class="user icon"></i></div>
+				</div>
+			</div>
+			<!-- reserved by space shows up if the room is reserved by a user -->
+			<div ng-show="vm.isReserved" class="extra content">
+				<div class="left floated author">
+					By: &nbsp;<img class="ui avatar image" ng-show="{{ vm.reservedByImageUrl }}" ng-src="{{ vm.reservedByImageUrl }}"> {{
+					vm.reservedByName }}
+				</div>
+			</div>
+		</div>
+	</rooms>
+</div>

@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="components/homemadeModal/modal.css" />
+
+<div>
+	<div class="modalContainer" ng-show="vm.isShowingModal()">
+		<!-- dimmer -->
+		<div class="ui center aligned grid">
+			<div class="row">
+				<div class="middle aligned column">
+					<!-- content in modal -->
+					<modal-prompt ng-show="vm.modal.isPrompt"></modal-prompt>
+					<modal-login ng-show="vm.modal.isLogin"></modal-login>
+					<modal-register ng-show="vm.modal.isRegister"></modal-register>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<ng-transclude></ng-transclude>
+</div>

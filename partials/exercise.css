@@ -1,0 +1,26 @@
+.spacedDiv {
+	margin-top: .2em;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid gray;
+}
+
+.spacedDiv:last-child {
+	border-bottom: none;
+}
+
+input {
+	margin-left: 2em;
+}
+
+input.ng-valid {
+	background-color: lightgreen !important;
+}
+
+input.ng-invalid.ng-dirty {
+	background-color: lightpink !important;
+}
+
+html {
+	background: white;
+}

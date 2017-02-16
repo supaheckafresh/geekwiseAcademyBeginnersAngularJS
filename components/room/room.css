@@ -1,0 +1,12 @@
+.ui.container {
+	padding-top: 2.4em;
+}
+
+.ui.card {
+	width: 50%;
+	margin: 2em;
+}
+
+.ui.card:first-child {
+	margin: 2em;
+}

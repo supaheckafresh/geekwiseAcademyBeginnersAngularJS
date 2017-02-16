@@ -1,0 +1,19 @@
+<link href="components/navigation/navigation.css" rel="stylesheet">
+
+<div class="ui segments navigation">
+	<div class="ui segment">
+		<!--our exercise routes point to legacy Angular; not encapsulating in component pieces -->
+		<h3 class="ui grey header">Application exercise routes: </h3>
+	</div>
+	<div class="ui segment">
+		<div class="ui horizontal large list">
+			<div ng-repeat="r in vm.navigation" class="item">
+				<div class="content">
+					<div class="header">
+						<a ng-href="{{ r.url }}">{{ r.name | uppercase }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
