@@ -27,9 +27,6 @@
 				);
 			};
 
-      //TODO:
-      (function yes(no) { alert(no) }('yes'));
-
 			// modal callback
 			function showAlertCallback() {
 				this.rollButtonText = "I changed because you pressed alert";
