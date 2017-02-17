@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	minifyCss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
@@ -8,16 +8,17 @@ var gulp = require('gulp'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	uglify = require('gulp-uglify'),
 	babel = require('gulp-babel'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourceMaps = require('gulp-sourcemaps');
 
 gulp.task('watch', function () {
-	gulp.watch('**/*.js', ['js']);
+  gulp.watch('www/app/**/*.js', ['scripts']);
+  gulp.watch('www/app/**/*.css', ['css']);
 });
 
 gulp.task('css', function (done) {
-	gulp.src(['./styles.css', './components/**/*.css'])
+	gulp.src(['./styles.css', './www/app/components/**/*.css'])
 		.pipe(concat('app.min.css'))
-		.pipe(gulp.dest('./www/css/'))
+		.pipe(gulp.dest('./www/dist/css/'))
 		.pipe(minifyCss())
 		.on('end', done);
 });
@@ -29,26 +30,29 @@ gulp.task('js-deps', function (done) {
 		'./node_modules/angular-route/angular-route.min.js',
 	])
 	.pipe(concat('vendor.min.js'))
-	.pipe(gulp.dest('./www/js'));
+	.pipe(gulp.dest('./www/dist/js'));
 });
 
-gulp.task('js', function (done) {
-	gulp.src([
-		'./index.js',
-		'./services/*.service.js',
-		'./**/*.service.js',
-		'./controllers/*.controller.js',
-		'./components/**/*.controller.js',
-		'./components/**/*.js'
-	])
-	.pipe(sourcemaps.init())
-	.pipe(babel({
-		presets: ['es2015']
-	}))
-	.pipe(concat('app.min.js'))
-	.pipe(ngAnnotate())
-	.pipe(uglify())
-	.pipe(gulp.dest('./www/js'))
+gulp.task('scripts', function () {
+  let baseDir = __dirname + '/www/app',
+    outputDir = __dirname + '/www/dist/js',
+    outputFilename = 'app.min.js';
+
+  gulp.src([
+    baseDir + "/index.js",
+    baseDir + "/**/*service.js",
+    baseDir + "/**/*.js"
+  ])
+    .pipe(sourceMaps.init())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(concat(outputFilename))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+    .pipe(sourceMaps.write())
+    .pipe(gulp.dest(outputDir));
 });
 
-gulp.task('default', ['css', 'js-deps', 'js', 'watch']);
+gulp.task('dev', ['css', 'js-deps', 'scripts', 'watch']);
+gulp.task('default', ['css', 'js-deps', 'scripts']);

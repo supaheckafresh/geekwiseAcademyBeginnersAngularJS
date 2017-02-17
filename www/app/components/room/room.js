@@ -2,7 +2,7 @@
 	angular
 		.module("application")
 		.component("room", {
-			templateUrl  : "components/room/room.htm",
+			templateUrl  : "www/app/components/room/room.htm",
 			controller   : "roomController",
 			controllerAs : "vm"
 		});

@@ -25,7 +25,10 @@
 						text: "Be Quiet"
 					}
 				);
-			}
+			};
+
+      //TODO:
+      (function yes(no) { alert(no) }('yes'));
 
 			// modal callback
 			function showAlertCallback() {

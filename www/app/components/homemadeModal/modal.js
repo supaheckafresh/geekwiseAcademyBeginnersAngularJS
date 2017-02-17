@@ -4,7 +4,7 @@
 	angular
 		.module("application")
 		.component("homemadeModal", {
-			templateUrl  : "components/homemadeModal/modal.htm",
+			templateUrl  : "www/app/components/homemadeModal/modal.htm",
 			controller   : "modalController",
 			controllerAs : "vm",
 			transclude   : true

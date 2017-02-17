@@ -24,12 +24,12 @@
 
 				$routeProvider
 					.when("/exercise1", {
-						templateUrl: "/partials/exercise1.partial.htm",
+						templateUrl: "/www/app/partials/exercise1.partial.htm",
 						controller: "exercise1Controller",
 						controllerAs: "vm"
 					})
 					.when("/exercise2", {
-						templateUrl: "/partials/exercise2.partial.htm",
+						templateUrl: "/www/app/partials/exercise2.partial.htm",
 						controller: "exercise2Controller",
 						controllerAs: "vm"
 					})
@@ -37,7 +37,7 @@
 						template: "<room></room>",
 					})
 					.otherwise({
-						templateUrl: "/partials/welcome.partial.htm",
+						templateUrl: "/www/app/partials/welcome.partial.htm",
 						controller: "welcomeController",
 						controllerAs: "vm"
 					});

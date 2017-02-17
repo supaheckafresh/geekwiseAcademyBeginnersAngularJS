@@ -6,7 +6,7 @@
 	angular
 		.module("application")
 		.component("navigation", {
-			templateUrl  : "components/navigation/navigation.htm",
+			templateUrl  : "www/app/components/navigation/navigation.htm",
 			controller   : "navigationController",
 			controllerAs : "vm"
 		});

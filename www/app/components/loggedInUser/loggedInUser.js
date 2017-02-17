@@ -2,7 +2,7 @@
 	angular
 		.module("application")
 		.component("loggedInUser", {
-			templateUrl  : "components/loggedInUser/loggedInUser.htm",
+			templateUrl  : "www/app/components/loggedInUser/loggedInUser.htm",
 			controller   : "loggedInUserController",
 			controllerAs : "vm"
 		});

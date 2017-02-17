@@ -3,12 +3,12 @@
 (function (angular) {
 	angular
 		.module("application")
-		.component("modalRegister", {
+		.component("modalPrompt", {
 			require: {
 				modal: "^homemadeModal"
 			},
-			templateUrl  : "components/homemadeModal/modalRegister/modalRegister.htm",
-			controller   : "modalRegisterController",
+			templateUrl  : "www/app/components/homemadeModal/modalPrompt/modalPrompt.htm",
+			controller   : "modalPromptController",
 			controllerAs : "vm"
 		});
 } (window.angular));
