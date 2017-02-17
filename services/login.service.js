@@ -29,8 +29,9 @@
 				loggedInUser = loggedInUserResponse;
 
 				if (loggedInUserResponse && !loggedInUserResponse.displayName) {
+					let url = settings.fetchRestUrl("/rooms");
 					// use Firebase SDK to fetch from users
-					$http.get(settings.fetchFirebaseUrl("users/" + loggedInUserResponse.email.replace(".", "_").toLowerCase()))
+					$http.get(settings.fetchRestUrl("users/" + loggedInUserResponse.email.replace(".", "_").toLowerCase()))
 						.then(function(results) {
 							console.log("Setting logged in user from Firebase database after login");
 							loggedInUser = results.data;

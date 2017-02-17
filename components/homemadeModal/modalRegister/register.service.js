@@ -33,7 +33,7 @@
 
 			function writeFormDataToFirebase(data) {
 				return $http({
-					url    : settings.fetchFirebaseUrl("users/" + data.email.replace(".", "_").toLowerCase()),
+					url    : settings.fetchRestUrl("users/" + data.email.replace(".", "_").toLowerCase()),
 					method : "PUT",
 					data
 				});

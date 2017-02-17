@@ -5,13 +5,13 @@
 		title            : "Angular Exercises / Reservation Application",
 		version          : 0.9,
 		author           : "Josh R. Dunlavy",
-		fetchFirebaseUrl : suffix => {
+		fetchRestUrl     : suffix => {
 			if (!suffix) return;
 
-			const prefix = "https://confdeconflictor.firebaseio.com/";
-			const firebaseJsonSuffix = ".json";
+			const vendorUrl = "https://confdeconflictor.firebaseio.com/";
+			const urlExt = ".json";
 
-			return prefix + suffix + firebaseJsonSuffix;
+			return vendorUrl + suffix + urlExt;
 		}
 	};
 
