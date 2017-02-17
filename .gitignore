@@ -38,6 +38,6 @@ semantic
 .node_repl_history
 
 # Our build
-www/dist.idea
+www/dist
 
 .idea

@@ -16,7 +16,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('css', function (done) {
-	gulp.src(['./styles.css', './www/app/components/**/*.css'])
+	gulp.src(['./styles.css', './www/app/**/*.css'])
 		.pipe(concat('app.min.css'))
 		.pipe(gulp.dest('./www/dist/css/'))
 		.pipe(minifyCss())
