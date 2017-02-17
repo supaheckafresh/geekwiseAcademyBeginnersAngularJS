@@ -8,8 +8,11 @@ var gulp = require('gulp'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	uglify = require('gulp-uglify'),
 	babel = require('gulp-babel'),
-	sourcemaps = require('gulp-sourcemaps'),
-	watch = require('gulp-watch');
+	sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('watch', function () {
+	gulp.watch('**/*.js', ['js']);
+});
 
 gulp.task('css', function (done) {
 	gulp.src(['./styles.css', './components/**/*.css'])
@@ -30,7 +33,7 @@ gulp.task('js-deps', function (done) {
 });
 
 gulp.task('js', function (done) {
-	return watch([
+	gulp.src([
 		'./index.js',
 		'./services/*.service.js',
 		'./**/*.service.js',
@@ -48,4 +51,4 @@ gulp.task('js', function (done) {
 	.pipe(gulp.dest('./www/js'))
 });
 
-gulp.task('default', ['css', 'js-deps', 'js']);
+gulp.task('default', ['css', 'js-deps', 'js', 'watch']);
